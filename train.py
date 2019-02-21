@@ -24,9 +24,9 @@ def stats(d):
     return [np.mean(d), np.std(d)]
 
 
-dataset = dl.trainLoader('Train_set_coarse_net_log')
+dataset = dl.trainLoader('Train_set_net_log_window_poisson')
 
-train_loader = torch.utils.data.DataLoader(dataset, batch_size=100,
+train_loader = torch.utils.data.DataLoader(dataset, batch_size=200,
                                            shuffle=True, num_workers=1,
                                            pin_memory=True)
 Unet = md.CNN()
@@ -54,4 +54,4 @@ for epoch in range(num_epochs):
             print("Epoch %s: Iter: %s err: %s \n" %
                   (epoch, i, get_error))
 
-torch.save(Unet.state_dict(), 'CNN_partial_log.w')
+torch.save(Unet.state_dict(), 'CNN_all_log_window_poisson.w')

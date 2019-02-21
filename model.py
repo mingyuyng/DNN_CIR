@@ -16,7 +16,7 @@ class CNN(nn.Module):
         # Cin = 1, Cout = 256, Kernel_size = 11
         self.conv1 = nn.Conv1d(1, 64, 11, stride=1, padding=5)
         # Cin = 256, Cout = 256, Kernel_size = 33
-        self.conv2 = nn.Conv1d(64, 128, 5, stride=1, padding=2)
+        self.conv2 = nn.Conv1d(64, 128, 3, stride=1, padding=1)
         # Cin = 256, Cout = 256, Kernel_size = 17
         self.conv3 = nn.Conv1d(128, 256, 3, stride=1, padding=1)
 
@@ -56,8 +56,8 @@ class CNN(nn.Module):
         x = x.view(-1, 16 * 256)
         x = self.fc1(x)            # Din = 16*256, Dout = 1024
         x = self.relu(x)
-        #x = self.fc2(x)            # Din = 1024, Dout = 1024
-        #x = self.relu(x)
+        x = self.fc2(x)            # Din = 1024, Dout = 1024
+        x = self.relu(x)
         x = self.fc3(x)            # Din = 1024, Dout = 1
 
         return x
