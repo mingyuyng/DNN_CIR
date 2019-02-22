@@ -27,7 +27,7 @@ dataset = dl.trainLoader('data/Train_set_coarse_net_log_window_poisson')
 train_loader = torch.utils.data.DataLoader(dataset, batch_size=200,
                                            shuffle=True, num_workers=1,
                                            pin_memory=True)
-net = md.CNN_cn2_fc2(1)
+net = md.CNN_cn2_fc2(1, 128)
 criterion = nn.MSELoss()
 learning_rate = 1e-4
 optimizer = optim.Adam(net.parameters(), lr=learning_rate)

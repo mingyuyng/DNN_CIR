@@ -28,7 +28,7 @@ dataset = dl.testLoader('data/Test_set_coarse_net_log_window_poisson')
 test_loader = torch.utils.data.DataLoader(dataset, batch_size=100,
                                           shuffle=True, num_workers=1,
                                           pin_memory=True)
-net = md.CNN_cn2_fc2(0)
+net = md.CNN_cn2_fc2(0, 128)
 net.load_state_dict(torch.load('models/CNN_partial_log_window_poisson_cn2_fc2.w'))
 error = []
 est_error = []
