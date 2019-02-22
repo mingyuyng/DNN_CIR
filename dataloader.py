@@ -36,7 +36,7 @@ class testLoader(data.Dataset):
         dist = self.mat_data['y_test'][0, index].astype('double')
         coarse = self.mat_data['y_coar'][0, index].astype('double')
         true = self.mat_data['y_true'][0, index].astype('double')
-        pair = {'time_cir': time_cir, 'dist': dist}
+        pair = {'time_cir': time_cir, 'dist': dist, 'coarse': coarse, 'true': true}
         return pair
 
     def __len__(self):
